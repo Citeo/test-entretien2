@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace TestEntretien
 {
     public class TestLinq
-    {        
+    {
         public static void FindCharWithMaxOccurence()
         {
             List<string> input = new List<string>()
@@ -14,7 +13,9 @@ namespace TestEntretien
                 "aabccccc",
                 "ddflfccccc"
             };
-                    
+
+            var result = input.SelectMany(s => s.Select(c => new { Character = c, Count = s.Where(item => item == c).Count() })).OrderByDescending(item => item.Count).First().Character;
+            Console.WriteLine(result);
         }
         public static void MergeIndexAndRemoveDuplicate()
         {
@@ -42,9 +43,12 @@ namespace TestEntretien
                     {"a",10 },{"c",30},{"b",20}
                 }
             };
-        }
-            
-        
 
+            var result = input.SelectMany(dico => dico).GroupBy(pair => pair.Key, pair => pair.Value).Select(group => group);
+            //.Select(group => group.GroupBy(item => item.Value).Where(item => item.Count() < 2));
         }
+
+
+
     }
+}

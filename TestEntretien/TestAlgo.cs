@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
 
 namespace TestEntretien
 {
@@ -23,13 +21,25 @@ namespace TestEntretien
                 new List<int>() { 6,23,7,8},
                 new List<int>() { 2,50,100,88},
             };
-            
-            
-            
+
+            for (var firstIndex = 0; firstIndex < datas.Count - 1; firstIndex++)
+            {
+                var listDoobloons = new List<int>();
+                for (var secondIndex = firstIndex + 1; secondIndex < datas.Count; secondIndex++)
+                {
+                    var doobloons = datas[firstIndex].Intersect(datas[secondIndex]);
+                    datas[secondIndex] = datas[secondIndex].Except(doobloons).ToList();
+                    listDoobloons.AddRange(doobloons);
+                }
+
+                datas[firstIndex] = datas[firstIndex].Except(listDoobloons.Distinct()).ToList();
+            }
+
+            foreach (var list in datas)
+            {
+                Console.WriteLine("List content");
+                Console.WriteLine(string.Join(", ", list));
+            }
         }
-
-       
-
-
     }
 }
