@@ -29,7 +29,8 @@ namespace ShopApi
             services.AddOptions();
             services.AddDbContext<ShopDBContext>(options =>
             {
-                string conn = Configuration.GetConnectionString("Shop");
+                //string conn = Configuration.GetConnectionString("Shop");
+                string conn = "Server=WINDEV2005EVAL\\SQLEXPRESS;Database=Shop;Trusted_Connection=True;";
                 options.UseSqlServer(conn, sqlServerOptionsAction: sqlOptions =>
                 {
                     sqlOptions.EnableRetryOnFailure(

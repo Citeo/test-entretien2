@@ -14,6 +14,14 @@ namespace TestEntretien
                 "aabccccc",
                 "ddflfccccc"
             };
+
+            var result = input.Select(c => c.ToCharArray())
+                .SelectMany(c => c)
+                .GroupBy(c => c)
+                .Select(i => new { Item = i, Count = i.Count() });
+
+                //.OrderByDescending(o => o.Count)
+                //.FirstOrDefault();
                     
         }
         public static void MergeIndexAndRemoveDuplicate()

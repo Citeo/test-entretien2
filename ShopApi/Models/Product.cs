@@ -12,7 +12,10 @@ namespace ShopApi.Models
             OrderItem = new HashSet<OrderItem>();
         }
        
+        [Required]
         public string Name { get; set; }
+        
+        [Range(0, Int32.MaxValue)]
         public int Price { get; set; }         
         public int Stock { get; set; }
         public DateTime CreationDate { get; set; }

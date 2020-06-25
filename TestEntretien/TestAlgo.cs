@@ -23,9 +23,23 @@ namespace TestEntretien
                 new List<int>() { 6,23,7,8},
                 new List<int>() { 2,50,100,88},
             };
-            
-            
-            
+
+            var result = new List<List<int>>();
+
+            datas.Select((list, listIndex) => new { Index = listIndex, Value=list })
+                 .ToList()
+                 .ForEach(item =>
+                 {
+                     result.Add(new List<int>());
+                     foreach(var number in item.Value)
+                     {
+                         var count = datas.SelectMany(s => s).Where(n => n == number).Count();
+                         if (count == 1)
+                         {
+                             result[item.Index].Add(number);
+                         }
+                     }
+                 });
         }
 
        
