@@ -14,6 +14,8 @@ namespace TestEntretien
                 "aabccccc",
                 "ddflfccccc"
             };
+
+            var inputStr = new List<string>();
                     
         }
         public static void MergeIndexAndRemoveDuplicate()
