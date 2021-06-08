@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Linq;
 
 namespace TestEntretien
 {
@@ -23,9 +24,41 @@ namespace TestEntretien
                 new List<int>() { 6,23,7,8},
                 new List<int>() { 2,50,100,88},
             };
-            
-            
-            
+
+            var allDatta = new List<int>();
+
+            datas.ForEach(item =>
+            {
+                allDatta.AddRange(item);
+            });
+
+            var duplicatedElement = new Dictionary<int, int>();
+            foreach (int item in allDatta)
+            {
+                if (duplicatedElement.ContainsKey(item))
+                {
+                    var val = duplicatedElement[item] + 1;
+                    duplicatedElement[item] = val;
+                }
+                else
+                {
+                    duplicatedElement.Add(item, 1);
+                }
+            }
+
+            duplicatedElement.Where(x => x.Value > 1).Select(y => y.Key).ToList().ForEach(key =>
+           {
+               datas.ForEach(item =>
+               {
+                   item.Remove(key) ;
+               });
+           } );
+
+            datas.ForEach(item =>
+            {
+            item.ForEach(elem => { Console.Write(elem); Console.Write(" "); });
+                Console.WriteLine("****");
+            });
         }
         
         public static void GroupAnagram()
