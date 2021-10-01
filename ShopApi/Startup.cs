@@ -29,7 +29,7 @@ namespace ShopApi
             services.AddOptions();
             services.AddDbContext<ShopDBContext>(options =>
             {
-                string conn = Configuration.GetConnectionString("Shop");
+                string conn = Configuration.GetConnectionString("ShopDB");
                 options.UseSqlServer(conn, sqlServerOptionsAction: sqlOptions =>
                 {
                     sqlOptions.EnableRetryOnFailure(
