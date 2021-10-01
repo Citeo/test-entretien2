@@ -14,7 +14,15 @@ namespace TestEntretien
                 "aabccccc",
                 "ddflfccccc"
             };
-                    
+
+            var filtered = input
+                .SelectMany(mot => mot)
+                .GroupBy(caractere => caractere)
+                .Select(grouping => new { key = grouping.Key, count = grouping.Count() })
+                .OrderByDescending(counters => counters.count)
+                .FirstOrDefault();
+
+            Console.WriteLine(filtered);
         }
         public static void Test2()
         {
