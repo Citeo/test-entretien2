@@ -14,7 +14,7 @@ namespace TestEntretien
                 "aabccccc",
                 "ddflfccccc"
             };
-                    
+            var res = String.Concat(input).GroupBy(c=>c).ToArray();
         }
         public static void Test2()
         {

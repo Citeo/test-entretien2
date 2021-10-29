@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ShopApi.Models
 {
     public partial class OrderItem
     {
+        [Key]
         public int Id { get; set; }
         public int ProductId { get; set; }
         public int OrderId { get; set; }

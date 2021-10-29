@@ -11,14 +11,14 @@ namespace ShopApi.Models
         {
             OrderItem = new HashSet<OrderItem>();
         }
-       
+
+        [Key]
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }         
         public int Stock { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime? UpdateDate { get; set; }
-        public int Id { get; set; }
-
         public virtual ICollection<OrderItem> OrderItem { get; set; }       
     }
 }

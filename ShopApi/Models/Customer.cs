@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ShopApi.Models
 {
@@ -10,6 +11,7 @@ namespace ShopApi.Models
             Order = new HashSet<Order>();
         }
 
+        [Key]
         public int Id { get; set; }
         public string Email { get; set; }
         public DateTime CreationDate { get; set; }

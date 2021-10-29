@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ShopApi.Models
 {
@@ -12,6 +13,7 @@ namespace ShopApi.Models
 
         public DateTime CreationDate { get; set; }
         public DateTime? UpdateDate { get; set; }
+        [Key]
         public int Id { get; set; }
         public int CustomerId { get; set; }
 
