@@ -31,13 +31,29 @@ namespace TestEntretien
         public static void GroupAnagram()
         {
             Console.WriteLine("GroupAnagram start");
-            string[] input = { "reza","eat", "tea", "tan", "ate", "nat", "bat", "bta", "azer" };
+            string[] input = { "reza","eat", "tea", "tan", "ate", "nat", "bat", "bta", "azer","btae"};
+            Dictionary<string, List<string>> output =new Dictionary<string, List<string>>();
 
-           
+            for (int i = 0; i < input.Length; i++)
+            {
+                string result = input[i];
+                var x = result.OrderBy(s => s).ToArray();
+                result = String.Concat(x);
+                if (output.ContainsKey(result))
+                {
+                    output[result].Add(input[i]);
+                }else
+                {
+                    output.Add(result,new List<string> { input[i] });
+                }
+                //output.Add(input[i], result);
+            }
+
+            //var distinctOutput = output.Distinct();
+            //foreach (var word in distinctOutput)
+            //{
+            //    Console.WriteLine(word);
+            //}
         }
-
-       
-
-
     }
 }

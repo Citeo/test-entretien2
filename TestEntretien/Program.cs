@@ -6,12 +6,15 @@ namespace TestEntretien
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("starting..");
-            TestAlgo.RemoveDuplicate();
-            //TestLinq.MergeIndexAndRemoveDuplicate();      
+            //Console.WriteLine("starting..");
+            //TestAlgo.RemoveDuplicate();
+            //TestLinq.MergeIndexAndRemoveDuplicate();
 
-            Console.WriteLine("complete");
-            Console.ReadLine();
+            //Console.WriteLine("complete");
+            //Console.ReadLine();
+
+            //TestAlgo.GroupAnagram();
+            TestLinq.FindCharWithMaxOccurence();
         }
     }
 }
