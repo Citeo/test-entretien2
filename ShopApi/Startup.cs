@@ -29,7 +29,7 @@ namespace ShopApi
             services.AddOptions();
             services.AddDbContext<ShopDBContext>(options =>
             {
-                string conn = Configuration.GetConnectionString("Shop");
+                string conn = Configuration.GetConnectionString("ShopDB");
                 options.UseSqlServer(conn, sqlServerOptionsAction: sqlOptions =>
                 {
                     sqlOptions.EnableRetryOnFailure(
@@ -39,7 +39,7 @@ namespace ShopApi
                 });
             });
 
-            services.AddControllers();
+            services.AddControllers();  
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +56,9 @@ namespace ShopApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                   name: "Default",
+                   pattern: "{controller=Products}/{action=Lister}/{id?}");
             });
         }
     }
