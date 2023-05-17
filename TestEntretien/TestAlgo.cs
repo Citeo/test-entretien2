@@ -23,12 +23,28 @@ namespace TestEntretien
                 new List<int>() { 2,50,100,88},
             };             
         }
-        
+
         public static void Test2()
-        {            
-            var input = { "reza","eat", "tea", "tan", "ate", "nat", "bat", "bta", "azer" };           
+        {
+            List<string> input = new List<string>() { "reza", "eat", "tea", "tan", "ate", "nat", "bat", "bta", "azer" };
+           
+            for(int i =0; i< input.Count; i++)
+            {
+                if(input[i].Length == input[i+1].Length)
+                {
+                    input[i]
+
+                }
+                else
+                {
+                    
+                }
+            }
+            
         }
-        
+
+
+
         public void Test3()
         {
             var input = new [] {1, 2, 7, 8, 11, 7};

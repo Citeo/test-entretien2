@@ -26,10 +26,11 @@ namespace ShopApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddOptions();
             services.AddDbContext<ShopDBContext>(options =>
             {
-                string conn = Configuration.GetConnectionString("Shop");
+                string conn = Configuration.GetConnectionString("ShopDB");
                 options.UseSqlServer(conn, sqlServerOptionsAction: sqlOptions =>
                 {
                     sqlOptions.EnableRetryOnFailure(

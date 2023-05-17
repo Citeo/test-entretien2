@@ -9,11 +9,19 @@ namespace TestEntretien
     {        
         public static void FindCharWithMaxOccurence()
         {
+            int count = 0;
             List<string> input = new List<string>()
             {
                 "aabccccc",
                 "ddflfccccc"
             };
+            for(int i = 0; i<input.Count; i++)
+            {
+                if(input[i] == input[i+1])
+                {
+                    
+                }
+            }
                     
         }
         public static void Test2()
